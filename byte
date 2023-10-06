@@ -1,0 +1,56 @@
+
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    unsigned short int a, ost;
+    int N = 7;
+    int A[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+    scanf("%hu", &a);
+    while(a / 2 != 1){ // заполение массива 
+        ost = a % 2;
+        
+        A[N] = ost;
+        N = N - 1;
+        a = a / 2;
+        
+    }
+    ost = a % 2;
+    A[N] = ost;
+    N = N - 1;
+    A[N] = 1;
+    
+    
+    
+    
+    int ind = 0; // вывод первой половины
+    int j, new;
+    new = 0;
+    j = 3;
+    while (j >= 0){
+        
+        new += A[ind] * pow(2, j);
+        ind += 1;
+        j = j - 1;
+    }
+    
+    
+    ind = 4; // вывод второй половины
+    j = 3;
+    int new2 = 0;
+    
+    while (j >= 0){
+        
+        new2 += A[ind] * pow(2, j);
+        ind += 1;
+        j = j - 1;
+    }
+   
+    
+    if(new >= new2){
+        printf("%d", new);
+    }
+    else{
+        printf("%d", new2);
+    }
+}
